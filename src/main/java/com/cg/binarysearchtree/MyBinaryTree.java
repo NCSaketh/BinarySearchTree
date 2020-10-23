@@ -29,7 +29,7 @@ public class MyBinaryTree <T extends Comparable<T>> {
 
     void display(MyNode root) {
         if (root != null) {
-            System.out.println(root.data);
+            System.out.println(root.data + " -> ");
             display(root.left_child);
             display(root.right_child);
         }
@@ -50,6 +50,26 @@ public class MyBinaryTree <T extends Comparable<T>> {
         else {
             return(size(node.left_child) + 1 + size(node.right_child));
         }
+    }
+
+    public boolean search(T data) {
+        return search(root, data);
+    }
+
+    public boolean search(MyNode root, T data) {
+        if (root != null) {
+            if (root.data == data) {
+                return true;
+            }
+
+            if (search(root.left_child, data)) {
+                return true;
+            }
+            if (search(root.right_child, data)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

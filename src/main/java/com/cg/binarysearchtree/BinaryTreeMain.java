@@ -1,7 +1,11 @@
 package com.cg.binarysearchtree;
 
+import java.util.Scanner;
+
 public class BinaryTreeMain {
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+
         MyBinaryTree bst=new MyBinaryTree();
         //Creating BST
         bst.add(56);
@@ -18,6 +22,17 @@ public class BinaryTreeMain {
         bst.add(63);
         bst.add(67);
         bst.display();
-        System.out.println("THE SIZE OF THE TREE IS "+ bst.size());
+        System.out.println("Tree size is "+ bst.size());
+
+        System.out.println("Enter to search");
+        int data=sc.nextInt();
+        if(bst.search(data))
+        {
+            System.out.println("Search is Successful");
+        }
+        else
+        {
+            System.out.println("Search Unsuccessful");
+        }
     }
 }
